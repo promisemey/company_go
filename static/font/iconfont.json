@@ -1,0 +1,23 @@
+{
+  "id": "4273630",
+  "name": "工作",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "936756",
+      "name": "眼睛",
+      "font_class": "yanjing",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "18166950",
+      "name": "用户组,组织群体,聚集,多人,结伴,结伙,同行",
+      "font_class": "organiz-full",
+      "unicode": "e8eb",
+      "unicode_decimal": 59627
+    }
+  ]
+}

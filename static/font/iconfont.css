@@ -1,0 +1,38 @@
+/* @font-face {
+	font-family: "iconfont";
+	src: url('@/static/font/iconfont.woff2?t=1696422146996') format('woff2'),
+		url('@/static/font/iconfont.woff?t=1696422146996') format('woff'),
+		url('@/static/font/iconfont.ttf?t=1696422146996') format('truetype');
+} */
+
+@font-face {
+	font-family: "iconfont";
+	/* Project id 4273630 */
+	src: url('//at.alicdn.com/t/c/font_4273630_i2k6bgom6tq.woff2?t=1696432332576') format('woff2'),
+		url('//at.alicdn.com/t/c/font_4273630_i2k6bgom6tq.woff?t=1696432332576') format('woff'),
+		url('//at.alicdn.com/t/c/font_4273630_i2k6bgom6tq.ttf?t=1696432332576') format('truetype');
+}
+
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xiaoxitongzhitixinglingshenglingdang-xianxing:before {
+	content: "\e793";
+}
+
+.icon-yanjing1:before {
+	content: "\e8c7";
+}
+
+.icon-kehuqunzu:before {
+	content: "\e673";
+}
+
+.icon-Bookmark:before {
+	content: "\e692";
+}
