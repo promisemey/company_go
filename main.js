@@ -1,5 +1,8 @@
 import App from './App'
 
+// 导入封装请求
+import http from './utils/http.js'
+
 // #ifndef VUE3
 import Vue from 'vue'
 // 引入全局TuniaoUI
@@ -11,6 +14,7 @@ import store from './store'
 let vuexStore = require('@/store/$tn.mixin.js')
 Vue.mixin(vuexStore)
 Vue.config.productionTip = false
+Vue.prototype.api = http
 App.mpType = 'app'
 
 try {
