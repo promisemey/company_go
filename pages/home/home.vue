@@ -11,6 +11,14 @@
 			<text class="iconfont icon-xiaoxitongzhitixinglingshenglingdang-xianxing text-grey"></text>
 			<!-- 头部 -->
 		</view>
+
+		<!-- 搜索框 -->
+		<view class="search flex align-center  solid margin-left-xl margin-right-sm margin-bottom-xl padding-sm">
+			<text class="cuIcon-search text-xl padding-lr-sm"></text>
+			<input class="basis-xl" type="text" placeholder="开始寻找你梦寐以求的工作...">
+		</view>
+		<!-- 搜索框 -->
+
 		<!-- banner -->
 		<swiper :duration="1000" circular next-margin="170rpx" class="padding-left-lg margin-left-xs">
 			<swiper-item class="out-swiper">
@@ -25,6 +33,7 @@
 			</swiper-item>
 		</swiper>
 		<!-- banner -->
+
 		<!-- 宫格 -->
 		<view class="margin-top-lg cu-list grid col-4 no-border ">
 			<view class="flex align-center cu-item" v-for="item in 8">
@@ -77,7 +86,7 @@
 		<!-- 最新职位 -->
 
 		<!-- 最受关注 -->
-		<view class="hot margin-top-sm">
+		<view class="hot margin-top-sm margin-bottom-lg">
 			<view class="flex align-center justify-between padding-left-xl margin-right-sm  margin-bottom-sm">
 				<text class="text-lg text-black">最受关注</text>
 				<text class="text-orange">查看全部</text>
@@ -130,11 +139,8 @@
 		font-size: 60upx;
 	}
 
-	swiper {
-
-		// ::v-deep .uni-swiper-slides {
-		// 	width: 508upx !important;
-		// }
+	.search {
+		height: 96upx;
 	}
 
 	.swiper-item {
