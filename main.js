@@ -14,6 +14,7 @@ import store from './store'
 let vuexStore = require('@/store/$tn.mixin.js')
 Vue.mixin(vuexStore)
 Vue.config.productionTip = false
+// 全局挂载
 Vue.prototype.api = http
 App.mpType = 'app'
 
