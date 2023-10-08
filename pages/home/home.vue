@@ -122,37 +122,26 @@
 </template>
 
 <script>
+	import {
+		category
+	} from '../../api/home.js'
+
 	export default {
 		data() {
 			return {
 				cateList: []
 			}
 		},
-		async onLoad() {
-			const res = await this.api.$get('classes/category', {
-				where: {
-					parentId: '0-0'
-				}
+		onLoad() {
+			category().then(res => {
+				this.cateList = res.data.results
 			})
-			this.cateList = res.data.results
-			// uni.request({
-			// 	url: 'https://wojhrvmp.lc-cn-n1-shared.com/1.1/classes/category',
-			// 	method: 'GET',
-			// 	header: {
-			// 		"X-LC-Id": 'WojHRvmpUDdDfo2kr9mfUVc2-gzGzoHsz',
-			// 		"X-LC-Key": 'RIiXkMSxvm1XzeptOeTOgvik',
-			// 		"Content-Type": 'application/json'
-			// 	},
-			// 	data: {
-			// 		where: {
-			// 			parentId: '0-0'
-			// 		}
-			// 	},
-			// 	success: (res) => {
-			// 		console.log(res);
-			// 		this.cateList = res.data.results
+			// const res = await this.api.$get('classes/category', {
+			// 	where: {
+			// 		parentId: '0-0'
 			// 	}
 			// })
+			// this.cateList = res.data.results
 		},
 		methods: {
 
