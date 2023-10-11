@@ -3,24 +3,24 @@
 		<view class="flex justify-between align-center">
 
 			<view class="job-name flex align-center">
-				<image class="cu-avatar round margin-right-xs" src="../static/logo.png" mode=""></image>
-				公司名称
+				<image class="cu-avatar round margin-right-xs" :src="data.brandLogo" mode=""></image>
+				{{data.brandName}}
 			</view>
 			<text class="iconfont icon-Bookmark text-xxl"></text>
 		</view>
 		<view class="margin-tb-sm text-lg">
-			UI设计师
+			{{data.jobName}}
 		</view>
 		<!-- 地址 职位类型 -->
 		<view :class="['margin-top-sm',state==='new'?'flex ':'margin-bottom-sm']">
 			<view class="text-sm">
-				重庆,九龙坡
+				{{data.cityName!=""?`${data.cityName},`:''}}{{data.areaDistrict}}
 			</view>
 			<view :class="['text-orange', 'text-sm',state==='hot'?'margin-tb-xs':'']">
 				<text class="margin-xs" v-if="state==='new'">
 					·
 				</text>
-				全职
+				{{data.salaryDesc}}
 			</view>
 		</view>
 		<!-- 地址 职位类型 -->
@@ -44,6 +44,7 @@
 	export default {
 		name: "job-item",
 		props: {
+			data: Object,
 			state: {
 				type: String,
 				default: 'hot',

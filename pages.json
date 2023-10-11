@@ -22,7 +22,8 @@
 			"path": "pages/company/company",
 			"style": {
 				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
 			}
 
 		}, {
@@ -61,28 +62,28 @@
 		"list": [{
 			"text": "首页",
 			"pagePath": "pages/home/home",
-			"iconPath": "static/img/home.png",
-			"selectedIconPath": "static/img/home_act.png"
+			"iconPath": "static/img/home_icon.png",
+			"selectedIconPath": "static/img/home_icon_act.png"
 		}, {
 			"text": "公司",
 			"pagePath": "pages/company/company",
-			"iconPath": "static/img/company.png",
-			"selectedIconPath": "static/img/company_act.png"
+			"iconPath": "static/img/company_icon.png",
+			"selectedIconPath": "static/img/company_icon_act.png"
 		}, {
 			"text": "活动",
 			"pagePath": "pages/activity/activity",
-			"iconPath": "static/img/activity.png",
-			"selectedIconPath": "static/img/activity_act.png"
+			"iconPath": "static/img/act_icon.png",
+			"selectedIconPath": "static/img/act_icon_act.png"
 		}, {
 			"text": "消息",
 			"pagePath": "pages/information/information",
-			"iconPath": "static/img/information.png",
-			"selectedIconPath": "static/img/information.png"
+			"iconPath": "static/img/msg_icon.png",
+			"selectedIconPath": "static/img/msg_icon_act.png"
 		}, {
 			"text": "我的",
 			"pagePath": "pages/mine/mine",
-			"iconPath": "static/img/mine.png",
-			"selectedIconPath": "static/img/mine_act.png"
+			"iconPath": "static/img/mine_icon.png",
+			"selectedIconPath": "static/img/mine_icon_act.png"
 		}]
 	},
 	"uniIdRouter": {}

@@ -13,10 +13,11 @@
 		</view>
 
 		<!-- 搜索框 -->
-		<view class="search flex align-center  solid margin-left-xl margin-right-sm margin-bottom-xl padding-sm">
+		<!-- 		<view class="search flex align-center  solid margin-left-xl margin-right-sm margin-bottom-xl padding-sm">
 			<text class="cuIcon-search text-xl padding-lr-sm"></text>
 			<input class="basis-xl" type="text" placeholder="开始寻找你梦寐以求的工作...">
-		</view>
+		</view> -->
+		<search-ipt :iptData="iptData" />
 		<!-- 搜索框 -->
 
 		<!-- banner -->
@@ -36,9 +37,14 @@
 
 		<!-- 宫格 -->
 		<view class="margin-top-lg cu-list grid col-4 no-border ">
-			<view class="flex align-center cu-item" v-for="item in cateList" :key="item.objectId">
+			<view class="flex align-center cu-item" v-for="item in cateList" :key="item.objectId"
+				@click="handleJobItem(item)">
 				<image class="grid-icon" :src="item.icon" mode="aspectFill"></image>
 				<text>{{item.name}}</text>
+			</view>
+			<view class="flex align-center cu-item">
+				<image class="grid-icon" src="../../static/img/more.png" mode="aspectFill"></image>
+				<text>更多</text>
 			</view>
 		</view>
 		<!-- 宫格 -->
@@ -51,7 +57,7 @@
 			</view>
 			<scroll-view scroll-x class="margin-right-xl">
 				<view class="flex justify-between margin-left-xl">
-					<job-item v-for="item in 4" class="margin-right-lg shrink" />
+					<job-item v-for="item in jobList" :data="item" class="margin-right-lg shrink" />
 				</view>
 			</scroll-view>
 		</view>
@@ -65,7 +71,7 @@
 			</view>
 			<scroll-view scroll-x class="margin-right-xl">
 				<view class="flex justify-between margin-left-xl">
-					<job-item v-for="item in 4" class="margin-right-lg shrink" />
+					<job-item v-for="item in jobList" :data="item" class="margin-right-lg shrink" />
 				</view>
 			</scroll-view>
 		</view>
@@ -79,7 +85,7 @@
 			</view>
 
 			<view class="flex flex-wrap padding-left-xl padding-right-sm ">
-				<job-item v-for="item in 3" state="new" class="margin-bottom-lg" />
+				<job-item v-for="item in jobList" :data="item" state="new" class="margin-bottom-lg" />
 			</view>
 
 		</view>
@@ -125,26 +131,40 @@
 	import {
 		category
 	} from '../../api/home.js'
-
+	import {
+		companyGet
+	} from '../../api/company.js'
 	export default {
 		data() {
 			return {
-				cateList: []
+				cateList: [],
+				jobList: [],
+				iptData: '开始寻找你梦寐以求的工作...'
 			}
 		},
 		onLoad() {
 			category().then(res => {
 				this.cateList = res.data.results
 			})
-			// const res = await this.api.$get('classes/category', {
-			// 	where: {
-			// 		parentId: '0-0'
-			// 	}
-			// })
-			// this.cateList = res.data.results
+
+			companyGet().then(res => {
+				console.log(res);
+				this.jobList = res.data.results
+			})
 		},
 		methods: {
+			handleJobItem({
+				name
+			}) {
+				uni.setStorage({
+					key: 'cateName',
+					data: name
+				})
 
+				uni.switchTab({
+					url: "/pages/company/company",
+				})
+			}
 		}
 	}
 </script>

@@ -48,7 +48,9 @@ try {
 
 // 全局组件
 import JobItem from './components/job-item.vue'
+import SearchIpt from './components/search-ipt.vue'
 Vue.component('job-item', JobItem)
+Vue.component('search-ipt', SearchIpt)
 
 const app = new Vue({
 	store,
