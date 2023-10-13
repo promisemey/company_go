@@ -1,7 +1,16 @@
 <script>
 	export default {
 		onLaunch: function() {
-			console.log(11111);
+
+			try { // 尝试读取用户信息
+				const localUserInfo = uni.getStorageSync('userInfo')
+				if (localUserInfo) {
+					console.log('用户信息：', localUserInfo);
+					this.$store.commit('user/userInfo', localUserInfo)
+				}
+			} catch (e) {
+				console.log('用户未登录!');
+			}
 			// 获取位置信息
 			uni.getLocation({
 				success: (res) => {

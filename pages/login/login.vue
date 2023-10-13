@@ -76,11 +76,12 @@
 								<view class="tn-icon-phone"></view>
 							</view>
 							<view class="login__info__item__input__content">
-								<input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入注册手机号码" />
+								<input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入注册手机号码"
+									v-model="userInfo.username" />
 							</view>
 						</view>
-
-						<view
+						<!-- 验证码 -->
+						<!-- 						<view
 							class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
 							<view class="login__info__item__input__left-icon">
 								<view class="tn-icon-code"></view>
@@ -92,15 +93,16 @@
 								<tn-button backgroundColor="#01BEFF" fontColor="#FFFFFF" size="sm" padding="5rpx 10rpx" width="100%"
 									shape="round">{{ tips }}</tn-button>
 							</view>
-						</view>
-
+						</view> -->
+						<!-- 验证码 -->
 						<view
 							class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
 							<view class="login__info__item__input__left-icon">
 								<view class="tn-icon-lock"></view>
 							</view>
 							<view class="login__info__item__input__content">
-								<input :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码" />
+								<input :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码"
+									v-model="userInfo.password" />
 							</view>
 							<view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
 								<view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
@@ -155,6 +157,11 @@
 	import {
 		mapActions
 	} from 'vuex'
+
+	import {
+		userReg
+	} from '../../api/user.js'
+
 	const Point = class {
 		constructor(x, y) {
 			this.x = x
@@ -258,7 +265,11 @@
 			// 登录
 			handleLogin() {
 				console.log(this.userInfo);
-				this.USERLOGIN(this.userInfo)
+				if (this.currentModeIndex === 0) { // 登录
+					this.USERLOGIN(this.userInfo)
+				} else {
+					userReg(this.userInfo)
+				}
 			},
 			/**粒子进行*/
 			gameloop() {

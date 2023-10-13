@@ -4,6 +4,9 @@ import {
 	ID,
 	KEY
 } from '../config/index.js'
+import {
+	fail
+} from 'assert';
 const http = new Request()
 /* config 为默认全局配置*/
 http.setConfig((config) => {
@@ -29,11 +32,16 @@ http.interceptors.request.use((config) => { // 可使用async await 做异步操
 //响应拦截器
 http.interceptors.response.use((response) => {
 	/* 对响应成功做点什么 可使用async await 做异步操作*/
-	console.log('响应拦截器', response)
+	uni.showToast({
+		title: '操作成功'
+	})
 	return response
 }, (response) => {
 	/*  对响应错误做点什么 （statusCode !== 200）*/
-	console.log(response)
+	uni.showToast({
+		icon: 'none',
+		title: '操作失败'
+	})
 	return Promise.reject(response)
 })
 

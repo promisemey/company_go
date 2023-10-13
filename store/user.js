@@ -16,7 +16,12 @@ export default {
 	actions: {
 		userLoginAction(context, account) {
 			userLogin(account).then(res => {
-				console.log("登录信息：", res);
+				// console.log("登录信息：", res);
+				context.commit('initUserInfo', res.data)
+				uni.setStorage({
+					key: "userInfo",
+					data: res.data
+				})
 			}).catch(err => {
 				console.log('登录异常：', err);
 			})

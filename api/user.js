@@ -4,3 +4,7 @@ import http from '../utils/request.js'
 export const userLogin = (account) => {
 	return http.post('login', account)
 }
+// 注册
+export const userReg = (account) => {
+	return http.post('users', account)
+}
