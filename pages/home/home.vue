@@ -2,11 +2,14 @@
 	<view class="home">
 		<view class="flex padding-lg margin-xs  align-center justify-between">
 			<!-- 头部 -->
-			<view class="">
-				您好，
-				<view class="text-xxl margin-top-xs">
-					XX科技有限公司
+			<view class="flex justify-between">
+				<view class="">
+					您好，
+					<view class="text-xxl margin-top-xs">
+						XX科技有限公司
+					</view>
 				</view>
+				当前位置：{{city}}
 			</view>
 			<text class="iconfont icon-xiaoxitongzhitixinglingshenglingdang-xianxing text-grey"></text>
 			<!-- 头部 -->
@@ -134,6 +137,9 @@
 	import {
 		companyGet
 	} from '../../api/company.js'
+	import {
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -141,6 +147,12 @@
 				jobList: [],
 				iptData: '开始寻找你梦寐以求的工作...'
 			}
+		},
+		computed: {
+			...mapState({
+				city: state => state.location.city,
+				lnglat: state => state.location.lnglat
+			})
 		},
 		onLoad() {
 			category().then(res => {
