@@ -22,6 +22,9 @@ export default {
 					key: "userInfo",
 					data: res.data
 				})
+				uni.navigateBack({
+					delta: 1
+				})
 			}).catch(err => {
 				console.log('登录异常：', err);
 			})

@@ -1,5 +1,5 @@
 <template>
-	<view class="job-item padding-sm margin-bottom-sm" :class="state">
+	<view @click="handleDetail" class="job-item padding-sm margin-bottom-sm" :class="state">
 		<view class="flex justify-between align-center">
 
 			<view class="job-name flex align-center">
@@ -51,6 +51,14 @@
 				validator(value) {
 					return ['hot', 'new'].includes(value)
 				}
+			}
+		},
+		methods: {
+			handleDetail() {
+				console.log(this.data);
+				uni.navigateTo({
+					url: `/pages/companyDetail/companyDetail?id=${this.data.objectId}`
+				})
 			}
 		},
 		data() {

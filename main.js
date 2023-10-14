@@ -18,6 +18,18 @@ Vue.config.productionTip = false
 Vue.prototype.api = http
 App.mpType = 'app'
 
+import CloudSDK from 'leancloud-storage'
+import {
+	BASE,
+	ID,
+	KEY
+} from './config/index.js';
+CloudSDK.init({
+	appId: ID,
+	appKey: KEY,
+	serverURL: BASE
+});
+
 try {
 	function isPromise(obj) {
 		return (

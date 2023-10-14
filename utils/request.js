@@ -32,16 +32,29 @@ http.interceptors.request.use((config) => { // 可使用async await 做异步操
 //响应拦截器
 http.interceptors.response.use((response) => {
 	/* 对响应成功做点什么 可使用async await 做异步操作*/
-	uni.showToast({
-		title: '操作成功'
-	})
+
+	const {
+		url
+	} = response.config
+	if (url === 'login' || url === 'users') {
+		uni.showToast({
+			title: '操作成功'
+		})
+	}
+
 	return response
 }, (response) => {
 	/*  对响应错误做点什么 （statusCode !== 200）*/
-	uni.showToast({
-		icon: 'none',
-		title: '操作失败'
-	})
+	const {
+		url
+	} = response.config
+	if (url === 'login' || url === 'users') {
+		uni.showToast({
+			icon: 'none',
+			title: '操作失败'
+		})
+	}
+
 	return Promise.reject(response)
 })
 

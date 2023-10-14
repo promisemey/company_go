@@ -8,3 +8,7 @@ export const userLogin = (account) => {
 export const userReg = (account) => {
 	return http.post('users', account)
 }
+// 更新
+export const userUpdate = (account) => {
+	return http.post('users', account)
+}

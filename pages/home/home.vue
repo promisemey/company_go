@@ -20,7 +20,9 @@
 			<text class="cuIcon-search text-xl padding-lr-sm"></text>
 			<input class="basis-xl" type="text" placeholder="开始寻找你梦寐以求的工作...">
 		</view> -->
-		<search-ipt :iptData="iptData" />
+		<view class="margin-left-xl margin-right-sm margin-bottom-xl">
+			<search-ipt :iptData="iptData" />
+		</view>
 		<!-- 搜索框 -->
 
 		<!-- banner -->

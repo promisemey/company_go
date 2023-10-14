@@ -6,7 +6,7 @@
 				const localUserInfo = uni.getStorageSync('userInfo')
 				if (localUserInfo) {
 					console.log('用户信息：', localUserInfo);
-					this.$store.commit('user/userInfo', localUserInfo)
+					this.$store.commit('user/initUserInfo', localUserInfo)
 				}
 			} catch (e) {
 				console.log('用户未登录!');
